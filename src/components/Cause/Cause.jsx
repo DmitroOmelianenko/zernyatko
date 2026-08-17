@@ -19,12 +19,12 @@ export const Cause = () => {
                     <p className={style.cause__description}>Лише відібрані кавові зерна та товари від перевірених виробників.</p>
                 </li>
                 <li className="cause__item">
-                    <img src={tea} className="cause__vector" alt="" />
+                    <img src={tea} className={style.cause__vector} alt="" />
                     <h3 className={style.cause__name}>Усе для кавового ритуалу</h3>
                     <p className={style.cause__description}>Від турки до кавомолки — ми зібрали повний набір для ідеальної чашки.</p>
                 </li>
                 <li className="cause__item">
-                    <img src={calendar} className="cause__vector" alt="" />
+                    <img src={calendar} className={style.cause__vector} alt="" />
                     <h3 className={style.cause__name}>Натхнення щодня</h3>
                     <p className={style.cause__description}>Кава, яка підкреслить твій настрій та стане головною частиною ранкової звички.</p>
                 </li>

@@ -6,7 +6,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import style from "./Reviews.module.scss"
+import style from "./Reviews.module.scss";
+import { Container } from "../Container/Container.jsx";
 
 const reviewsData = [
   {
@@ -49,18 +50,18 @@ export const Reviews = () => {
   };
 
   return (
-    <section className="reviews">
-      <div className="container">
-        <h2 className="reviews__title">Останні відгуки</h2>
+    <section className={style.reviews}>
+      <Container>
+        <h2 className={style.reviews__title}>Останні відгуки</h2>
 
-        <div className="reviews__slider-wrapper">
+        <div className={style.reviews__sliderWrapper}>
           <Swiper
             modules={[Navigation, Pagination]}
             spaceBetween={32}
             slidesPerView={1}
             navigation={{
-              prevEl: '.reviews__btn--prev',
-              nextEl: '.reviews__btn--next',
+              prevEl: '.rev-prev',
+              nextEl: '.rev-next',
             }}
             pagination={{
               clickable: true,
@@ -71,17 +72,17 @@ export const Reviews = () => {
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="reviews__swiper"
+            className={style.reviews__swiper}
           >
             {reviewsData.map((review) => (
               <SwiperSlide key={review.id}>
-                <div className="review-card">
-                  <div className="review-card__rating">
+                <div className={style.reviewCard}>
+                  <div className={style.reviewCard__rating}>
                     {renderStars(review.rating)}
                   </div>
-                  <p className="review-card__text">{review.text}</p>
-                  <div className="review-card__author">{review.author}</div>
-                  <a href={review.productLink} className="review-card__product">
+                  <p className={style.reviewCard__text}>{review.text}</p>
+                  <div className={style.reviewCard__author}>{review.author}</div>
+                  <a href={review.productLink} className={style.reviewCard__product}>
                     {review.productName}
                   </a>
                 </div>
@@ -89,16 +90,24 @@ export const Reviews = () => {
             ))}
           </Swiper>
 
-          <div className="reviews__controls">
-            <button className="reviews__btn reviews__btn--prev" aria-label="Назад">
+          <div className={style.reviews__controls}>
+            <button
+              type="button"
+              className={`${style.reviews__btn} ${style.reviews__btnPrev} rev-prev`}
+              aria-label="Назад"
+            >
               &#8592;
             </button>
-            <button className="reviews__btn reviews__btn--next" aria-label="Вперед">
+            <button
+              type="button"
+              className={`${style.reviews__btn} ${style.reviews__btnNext} rev-next`}
+              aria-label="Вперед"
+            >
               &#8594;
             </button>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

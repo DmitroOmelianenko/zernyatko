@@ -6,8 +6,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import style from "./PopCategory.module.scss"
-import { Container } from "../Container/Container.jsx"
+import style from "./PopCategory.module.scss";
+import { Container } from "../Container/Container.jsx";
 import coffeeData from '../../api/coffee.json';
 
 export const PopularCategories = () => {
@@ -30,21 +30,23 @@ export const PopularCategories = () => {
   }, []);
 
   return (
-    <section className="popular-categories">
-      <div className="container">
-        <div className="popular-categories__header">
-          <h2 className="popular-categories__title">Популярні категорії</h2>
-          <button className="popular-categories__all-btn">Всі категорії</button>
+    <section className={style.popularCategories}>
+      <Container>
+        <div className={style.popularCategories__header}>
+          <h2 className={style.popularCategories__title}>Популярні категорії</h2>
+          <button type="button" className={style.popularCategories__allBtn}>
+            Всі категорії
+          </button>
         </div>
 
-        <div className="popular-categories__slider-wrapper">
+        <div className={style.popularCategories__sliderWrapper}>
           <Swiper
             modules={[Navigation, Pagination]}
             spaceBetween={24}
             slidesPerView={1}
             navigation={{
-              prevEl: '.popular-categories__btn--prev',
-              nextEl: '.popular-categories__btn--next',
+              prevEl: '.pop-cat-prev',
+              nextEl: '.pop-cat-next',
             }}
             pagination={{
               clickable: true,
@@ -55,21 +57,21 @@ export const PopularCategories = () => {
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="popular-categories__swiper"
+            className={style.popularCategories__swiper}
           >
             {categories.map((cat) => (
               <SwiperSlide key={cat.id}>
-                <div className="category-card">
-                  <div className="category-card__image-wrapper">
+                <div className={style.categoryCard}>
+                  <div className={style.categoryCard__imageWrapper}>
                     <img
                       src={cat.image}
                       alt={cat.title}
-                      className="category-card__image"
+                      className={style.categoryCard__image}
                     />
                   </div>
-                  <div className="category-card__content">
-                    <h3 className="category-card__title">{cat.title}</h3>
-                    <p className="category-card__info">{cat.info}</p>
+                  <div className={style.categoryCard__content}>
+                    <h3 className={style.categoryCard__title}>{cat.title}</h3>
+                    <p className={style.categoryCard__info}>{cat.info}</p>
                   </div>
                 </div>
               </SwiperSlide>
@@ -77,19 +79,21 @@ export const PopularCategories = () => {
           </Swiper>
 
           <button
-            className="popular-categories__btn popular-categories__btn--prev"
+            type="button"
+            className={`${style.popularCategories__btn} ${style.popularCategories__btnPrev} pop-cat-prev`}
             aria-label="Назад"
           >
             &#8592;
           </button>
           <button
-            className="popular-categories__btn popular-categories__btn--next"
+            type="button"
+            className={`${style.popularCategories__btn} ${style.popularCategories__btnNext} pop-cat-next`}
             aria-label="Вперед"
           >
             &#8594;
           </button>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

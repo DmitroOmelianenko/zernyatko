@@ -1,4 +1,4 @@
-.popular-categories {
+.popularCategories {
   padding: 40px 0;
   font-family: "Nunito Sans", sans-serif;
   background-color: #FEF3DB;
@@ -16,7 +16,7 @@
     margin: 0;
   }
 
-  &__all-btn {
+  &__allBtn {
     background-color: #EFE6D5;
     border: none;
     padding: 8px 16px;
@@ -24,15 +24,20 @@
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s ease;
 
     &:hover {
       background-color: #e0d4be;
     }
   }
 
-  &__slider-wrapper {
+  &__sliderWrapper {
     position: relative;
+  }
+
+  &__swiper {
+    /* Залишаємо місце для кастомної пагінації Swiper, якщо потрібно */
+    padding-bottom: 24px;
   }
 
   &__btn {
@@ -50,34 +55,62 @@
     justify-content: center;
     font-size: 18px;
     z-index: 10;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 
-    &--prev { left: -22px; }
-    &--next { right: -22px; }
+    &:hover {
+      background-color: #f3b82d;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  &__btnPrev {
+    left: -22px;
+
+    @media (max-width: 768px) {
+      left: 8px;
+    }
+  }
+
+  &__btnNext {
+    right: -22px;
+
+    @media (max-width: 768px) {
+      right: 8px;
+    }
   }
 }
 
-.category-card {
+.categoryCard {
   display: flex;
   flex-direction: column;
 
-  &__image-wrapper {
+  &__imageWrapper {
     width: 100%;
     aspect-ratio: 16 / 10;
     border-radius: 16px;
     overflow: hidden;
     margin-bottom: 16px;
+  }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   &__title {
     font-size: 20px;
     font-weight: 700;
     margin: 0 0 8px 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
   }
 
   &__info {

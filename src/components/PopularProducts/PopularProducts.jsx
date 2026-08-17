@@ -6,10 +6,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import style from "./PopularProducts.module.scss"
+import style from "./PopularProducts.module.scss";
 
 import coffeeData from '../../api/coffee.json';
-import { Container } from "../Container/Container.jsx"
+import { Container } from "../Container/Container.jsx";
 
 export const PopularProducts = () => {
   const renderStars = (rate) => {
@@ -17,55 +17,57 @@ export const PopularProducts = () => {
   };
 
   return (
-    <section className="popular-products">
-        <Container>
-      <div className="container">
-        <div className='popular-products__flex'>
-        <h2 className="popular-products__title">Популярні товари</h2>
-        <button type="button" className='popular-products__all-products'>Всі товари</button>
+    <section className={style.popularProducts}>
+      <Container>
+        <div className={style.popularProducts__flex}>
+          <h2 className={style.popularProducts__title}>Популярні товари</h2>
+          <button type="button" className={style.popularProducts__allProducts}>
+            Всі товари
+          </button>
         </div>
-        <div className="popular-products__slider-wrapper">
+        
+        <div className={style.popularProducts__sliderWrapper}>
           <Swiper
             modules={[Navigation, Pagination]}
             spaceBetween={24}
             slidesPerView={1}
             navigation={{
-              prevEl: '.popular-products__btn--prev',
-              nextEl: '.popular-products__btn--next',
+              prevEl: '.popular-prev',
+              nextEl: '.popular-next',
             }}
             pagination={{
               clickable: true,
-              dynamicBullets: true, /* Вмикає динамічні крапки (анімацію зменшення крайніх) */
-              dynamicMainBullets: 1, /* По центру 1 головна крапка, решта зменшуються по боках */
+              dynamicBullets: true,
+              dynamicMainBullets: 1,
             }}
             breakpoints={{
               640: { slidesPerView: 2 },
               900: { slidesPerView: 3 },
               1200: { slidesPerView: 4 },
             }}
-            className="popular-products__swiper"
+            className={style.popularProducts__swiper}
           >
             {coffeeData.map((item) => (
               <SwiperSlide key={item._id.$oid}>
-                <div className="product-card">
-                  <div className="product-card__image-wrapper">
+                <div className={style.productCard}>
+                  <div className={style.productCard__imageWrapper}>
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="product-card__image"
+                      className={style.productCard__image}
                     />
                   </div>
 
-                  <div className="product-card__content">
-                    <div className="product-card__rating">
+                  <div className={style.productCard__content}>
+                    <div className={style.productCard__rating}>
                       {renderStars(item.rate)}
                     </div>
-                    <h3 className="product-card__title">{item.name}</h3>
-                    <p className="product-card__info">{item.info}</p>
-                    <div className="product-card__price">
+                    <h3 className={style.productCard__title}>{item.name}</h3>
+                    <p className={style.productCard__info}>{item.info}</p>
+                    <div className={style.productCard__price}>
                       {item.price.value} {item.price.currency}
                     </div>
-                    <button className="product-card__button">
+                    <button className={style.productCard__button}>
                       Детальніше
                     </button>
                   </div>
@@ -74,14 +76,19 @@ export const PopularProducts = () => {
             ))}
           </Swiper>
 
-          <button className="popular-products__btn popular-products__btn--prev" aria-label="Назад">
+          <button 
+            className={`${style.popularProducts__btn} ${style.popularProducts__btnPrev} popular-prev`} 
+            aria-label="Назад"
+          >
             &#8592;
           </button>
-          <button className="popular-products__btn popular-products__btn--next" aria-label="Вперед">
+          <button 
+            className={`${style.popularProducts__btn} ${style.popularProducts__btnNext} popular-next`} 
+            aria-label="Вперед"
+          >
             &#8594;
           </button>
         </div>
-      </div>
       </Container>
     </section>
   );
