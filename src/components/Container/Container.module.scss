@@ -1,0 +1,26 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+    outline: solid red;
+   max-width: 351px;
+   padding-left: 8px;
+   padding-right: 8px;
+
+    @media screen and (min-width: 768px) {
+        max-width: 736px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    @media screen and (min-width: 1200px) {
+         max-width: 1344px;
+    }
+}
+
+ 
+  header .container {
+     display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Nunito Sans", sans-serif;
+  }

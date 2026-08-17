@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+.hero {
+    background-color: #FEF3DB;
+    display: flex;
+    flex-direction: column;
+    font-family: "Nunito Sans", sans-serif;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: column;
+        padding-top: 46px;
+        padding-bottom: 46px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        flex-direction: row;
+        padding-top: 169px;
+        padding-bottom: 169px;
+        padding-left: 64px;
+        padding-right: 64px;
+    }
+
+    &__title {
+        font-weight: 700;
+
+        line-height: 120%;
+
+
+        @media screen and (min-width: 768px) {
+            max-width: 700px;
+            font-size: 40px;
+        }
+
+        @media screen and (min-width: 1200px) {
+            font-size: 55px;
+            max-width: 570px;
+        }
+    }
+
+    &__description {
+        line-height: 150%;
+        font-weight: 400;
+        max-width: 570;
+        font-size: 20px;
+
+
+        @media screen and (min-width: 768px) {
+            max-width: 704px;
+            font-size: 18px;
+        }
+
+    }
+
+    &__products-button {
+        background-color: #FBC74C;
+        border: none;
+        border-radius: 100px;
+        padding-top: 6px;
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 6px;
+        font-weight: 500;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    &__category-button {
+        background-color: #0000000D;
+        border: none;
+        padding-top: 6px;
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 6px;
+        font-weight: 500;
+        font-size: 16px;
+        border-radius: 100px;
+        margin-left: 16px;
+        cursor: pointer;
+    }
+}

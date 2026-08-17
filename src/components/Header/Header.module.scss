@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+.header {
+  background-color: #FCD781;
+  padding-top: 18px;
+  padding-bottom: 18px;
+
+  &__logoLink {
+    color: black;
+    text-decoration: none;
+    display: flex;
+
+    align-items: center;
+    gap: 8px; /* Відступ між іконкою та текстом «Зернятко» */
+    font-weight: 700;
+  }
+
+
+
+  &__navigation {
+  display: none;
+  list-style: none;
+  padding: 0;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    
+    /* Оце розсуне список зовні на весь вільний простір! */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* А відступи МІЖ самими пунктами меню робимо через margin-right для <li> */
+&__navigation li:not(:last-child) {
+  margin-right: 24px; /* або скільки тобі треба між посиланнями */
+}
+
+  &__navigationLink {
+    font-size: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  &__logInfoList {
+    display: none;
+    gap: 16px;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+    }
+
+    @media screen and (min-width: 1200px) {
+        display: flex;
+
+    }
+  }
+
+
+  &__logInButton {
+    background-color: rgba(239, 204, 123);
+    border: none;
+    padding: 6px 16px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  &__signInButton {
+    background-color: #FBC74C;
+    border: none;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-right: 16px;
+  }
+
+  &__borderCart {
+    background-color: black;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    img {
+      width: 55%;
+      height: 55%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+
+  &__burger {
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 16px;
+
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+
+    @media screen and (min-width: 1200px) {
+        display: none;
+    }
+  }
+}
