@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Products.module.scss';
 import coffeeData from '../../../api/coffee.json';
-import { Container } from '../../container/Container';
+import { Container } from '../../Container/Container';
 
 const categoriesList = [
   'Усі',
@@ -32,7 +32,6 @@ const brandsList = [
 
 export const ProductsPage = () => {
   const [visibleCount, setVisibleCount] = useState(12);
-  // Простий стан для відкриття/закриття фільтрів на мобілці
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const renderStars = (rate) => {
@@ -54,7 +53,6 @@ export const ProductsPage = () => {
         <h1 className={styles.CategoriesPage__title}>Всі товари</h1>
 
         <div className={styles.CategoriesPage__layout}>
-          {/* САЙДБАР / ФІЛЬТРИ */}
           <aside className={styles.CategoriesPage__sidebar}>
             <div className={styles.CategoriesPage__filterHeader}>
               <h3 className={styles.CategoriesPage__filterTitle}>Фільтри</h3>
@@ -63,8 +61,6 @@ export const ProductsPage = () => {
               </button>
             </div>
             <p className={styles.CategoriesPage__counter}>Показано 15 з 100</p>
-
-            {/* Дропдаун-кнопка для мобілки */}
             <div className={styles.CategoriesPage__selectWrapper}>
               <button
                 type="button"
@@ -78,8 +74,6 @@ export const ProductsPage = () => {
                   {isFilterOpen ? '▲' : '▼'}
                 </span>
               </button>
-
-              {/* Випадаючий список категорій */}
               <ul
                 className={`${styles.CategoriesPage__categoryList} ${
                   isFilterOpen ? styles['CategoriesPage__categoryList--open'] : ''
@@ -97,8 +91,6 @@ export const ProductsPage = () => {
                 ))}
               </ul>
             </div>
-
-            {/* Бренд (ховатиметься на мобілці за замовчуванням або залишається внизу) */}
             <div className={styles.CategoriesPage__desktopFilters}>
               <div className={styles.CategoriesPage__filterGroup}>
                 <div className={styles.CategoriesPage__filterHeader}>
@@ -141,8 +133,6 @@ export const ProductsPage = () => {
               </div>
             </div>
           </aside>
-
-          {/* КАРТКИ ТОВАРІВ */}
           <main className={styles.CategoriesPage__content}>
             <div className={styles.CategoriesPage__grid}>
               {coffeeData.slice(0, visibleCount).map((item) => (
