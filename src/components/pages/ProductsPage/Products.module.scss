@@ -1,0 +1,315 @@
+.CategoriesPage {
+  background-color: #FEF3DB;
+  font-family: "Nunito Sans", sans-serif;
+  padding-top: 100px;
+  padding-bottom: 60px;
+
+  &__title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: #000;
+  }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+
+    @media (min-width: 1200px) {
+      grid-template-columns: 260px 1fr;
+    }
+  }
+
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__filterGroup {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__filterHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  &__filterTitle {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    color: #000;
+  }
+
+  &__resetBtn {
+    background: none;
+    border: none;
+    font-size: 12px;
+    color: #555;
+    cursor: pointer;
+    padding: 0;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__counter {
+    font-size: 12px;
+    color: #666;
+    margin: 0 0 16px 0;
+  }
+
+  &__selectWrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 24px;
+
+    @media (min-width: 1200px) {
+      display: none;
+    }
+  }
+
+  &__selectBtn {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    background-color: #fdf8ed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+
+    &--open {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &__arrow {
+    font-size: 10px;
+    color: #333;
+  }
+
+  &__categoryList {
+    list-style: none;
+    padding: 12px 16px;
+    margin: 0;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #fdf8ed;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-top: none;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    max-height: 320px;
+    overflow-y: auto;
+
+    &--open {
+      display: flex;
+    }
+
+    @media (min-width: 1200px) {
+      display: flex;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      max-height: none;
+      overflow-y: visible;
+      gap: 10px;
+    }
+  }
+
+  &__categoryItem {
+    font-size: 14px;
+    color: #222;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &--active {
+      font-weight: 700;
+      text-decoration: underline;
+    }
+  }
+
+  &__desktopFilters {
+    display: none;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (min-width: 1200px) {
+      display: flex;
+    }
+  }
+
+  &__checkboxList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #222;
+    cursor: pointer;
+  }
+
+  &__checkboxInput {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #000;
+  }
+
+  &__rangeWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__rangeInput {
+    width: 100%;
+    accent-color: #000;
+    cursor: pointer;
+  }
+
+  &__rangeValues {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px 24px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__cardImageWrapper {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #d2c1b0;
+    margin-bottom: 12px;
+  }
+
+  &__cardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__cardBody {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__cardRating {
+    color: #000;
+    font-size: 14px;
+    margin-bottom: 4px;
+    letter-spacing: 2px;
+  }
+
+  &__cardTitle {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    color: #000;
+  }
+
+  &__cardInfo {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.4;
+    margin: 0 0 12px 0;
+    overflow: hidden;
+    height: 36px;
+  }
+
+  &__cardPrice {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #000;
+    margin-top: auto;
+  }
+
+  &__cardBtn {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #efe6d5;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #e2d5be;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  &__moreBtn {
+    background-color: #fbc74c;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 24px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+
+    &:hover {
+      background-color: #f0b52f;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
