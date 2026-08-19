@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import styles from './Categories.module.scss';
 import coffeeData from '../../../api/coffee.json';
-import { Container } from '../../container/Container';
+import { Container } from '../../Container/Container';
 
 export const CategoriesPage = () => {
   const [visibleCount, setVisibleCount] = useState(6);
