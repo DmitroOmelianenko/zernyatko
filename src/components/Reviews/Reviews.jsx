@@ -1,6 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import { useState, useEffect } from 'react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -9,45 +10,19 @@ import 'swiper/css/pagination';
 import style from "./Reviews.module.scss";
 import { Container } from "../Container/Container.jsx";
 
-const reviewsData = [
-  {
-    id: 1,
-    rating: 5,
-    text: 'Дуже сподобалася ця кава! Смак насичений, з легкою гірчинкою й ароматом шоколаду. Ідеально підходить для ранкового еспресо.',
-    author: 'Олена Коваль',
-    productName: 'Еспресо Класік',
-    productLink: '#',
-  },
-  {
-    id: 2,
-    rating: 5,
-    text: 'Френч-прес якісний і зручний у використанні. Скло міцне, фільтр добре працює, кава виходить ароматною й чистою. Точно вартий своєї ціни.',
-    author: 'Ігор Петров',
-    productName: 'Френч-прес Classic 600 мл',
-    productLink: '#',
-  },
-  {
-    id: 3,
-    rating: 5,
-    text: 'Купив для роботи — тримає тепло кілька годин, дизайн мінімалістичний і стильний. Дуже зручно брати з собою каву в дорогу.',
-    author: 'Ігор Шевченко',
-    productName: 'Термочашка Зернятко 350 мл',
-    productLink: '#',
-  },
-  {
-    id: 4,
-    rating: 5,
-    text: 'Чудова арабіка! М’який смак без зайвої кислотності. Замовляю вже втретє, доставка завжди швидка.',
-    author: 'Марія Бойко',
-    productName: 'Колумбія Супремо',
-    productLink: '#',
-  },
-];
 
 export const Reviews = () => {
   const renderStars = (rating) => {
     return '★'.repeat(rating);
   };
+
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    fetch("https://6a9abdd99a7ec1b817d288b6.mockapi.io/reviews")
+      .then((response) => response.json())
+      .then((data) => setReviews(data));
+  }, []);
 
   return (
     <section className={style.reviews}>
@@ -74,7 +49,7 @@ export const Reviews = () => {
             }}
             className={style.reviews__swiper}
           >
-            {reviewsData.map((review) => (
+            {reviews.map((review) => (
               <SwiperSlide key={review.id}>
                 <div className={style.reviewCard}>
                   <div className={style.reviewCard__rating}>

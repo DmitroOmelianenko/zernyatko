@@ -38,7 +38,7 @@ export const Header = () => {
                         <button type="button" className={style.header__logInButton}>Вхід</button>
                     </li>
                     <li className={style.header__logInfoItem}>
-                        <button type="button" className={style.header__signInButton}>Зареєструватися</button>
+                        <button type="button" className={style.header__signInButton}>Реєстрація</button>
                     </li>
                 </ul>
 
@@ -47,6 +47,21 @@ export const Header = () => {
                     <img src={shoppingCart} alt="header__shoppingCart" />
                 </div>
             </Container>
+            {/* <div className={style.header__modal}>
+                <Link to="/" className={style.header__logoLink}>
+                    <img src={logo} alt="Зернятко" />
+                    <span>Зернятко</span>
+                </Link>
+                <h2 className={style.header__allReserved}>© 2025 Зернятко. Всі права захищені.</h2>
+                <ul className={style.header__list}>
+                    <li className={style.header__item}>
+                        <button type="button" className={style.header__signUpBut}>Реєстрація</button>
+                    </li>
+                    <li className={style.header__item}>
+                        <button type="button" className={style.header__signInBut}>Вхід</button>
+                    </li>
+                </ul>
+            </div> */}
         </header>
     );
 };

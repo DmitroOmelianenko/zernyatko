@@ -9,6 +9,7 @@ import { Reviews } from "./components/Reviews/Reviews";
 import { Footer } from "./components/Footer/Footer";
 import { CategoriesPage } from "./components/pages/CategoriesPage/CategoriesPage";
 import { ProductsPage } from "./components/pages/ProductsPage/ProductsPage";
+import { MainPage } from "./components/pages/MainPage/MainPage";
 
 const App = () => {
   return (
@@ -19,13 +20,7 @@ const App = () => {
         <Route 
           path="/" 
           element={
-            <>
-              <Hero />
-              <PopularProducts />
-              <Cause />
-              <PopularCategories />
-              <Reviews />
-            </>
+            <MainPage />
           } 
         />
         <Route path="/categories" element={<CategoriesPage />} />

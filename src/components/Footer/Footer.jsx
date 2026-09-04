@@ -8,7 +8,8 @@ export const Footer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setEmail('');
+    const inputData = event.target.elements.email.value;
+     setEmail(inputData);
   };
 
   return (
@@ -41,8 +42,7 @@ export const Footer = () => {
               <input
                 type="email"
                 placeholder="Введіть ваш email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                name="email"
                 className={style.footer__input}
                 required
               />
@@ -50,6 +50,9 @@ export const Footer = () => {
                 Підписатися
               </button>
             </form>
+            {email && setTimeout(() => {
+              setEmail('');
+            }, 5000) && <p className={style.footer__emailDisplay}>{email}</p>}
           </div>
         </div>
 

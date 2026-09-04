@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
@@ -8,13 +9,34 @@ import 'swiper/css/pagination';
 
 import style from "./PopularProducts.module.scss";
 
-import coffeeData from '../../api/coffee.json';
+// import coffeeData from '../../api/coffee.json';
 import { Container } from "../Container/Container.jsx";
 
 export const PopularProducts = () => {
   const renderStars = (rate) => {
     return '★'.repeat(Math.floor(rate)) + (rate % 1 !== 0 ? '½' : '');
   };
+
+  const [products, setProducts] = useState([]);
+
+ useEffect(() => {
+  async function fetchData() {
+     await fetch("https://6a2d71772edd4cb330d12931.mockapi.io/coffee")
+    .then((data) => {
+      // console.log(data);
+      // console.log(data.json());
+     return data.json()  
+    })
+    .then((data) => {
+      // console.log(`Другий then: ${data}`);
+      // сonsole.log(data);
+      setProducts(data)
+    })
+  }
+  fetchData();
+  }, []);
+
+  console.log(products);
 
   return (
     <section className={style.popularProducts}>
@@ -47,8 +69,8 @@ export const PopularProducts = () => {
             }}
             className={style.popularProducts__swiper}
           >
-            {coffeeData.map((item) => (
-              <SwiperSlide key={item._id.$oid}>
+            {products.map((item) => (
+              <SwiperSlide>
                 <div className={style.productCard}>
                   <div className={style.productCard__imageWrapper}>
                     <img
